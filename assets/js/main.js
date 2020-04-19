@@ -1,1 +1,3 @@
-$("DOM").on("click", )
+$("document").ready(function() {
+
+});
