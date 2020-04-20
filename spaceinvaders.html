@@ -7,21 +7,32 @@
 </head>
 
 <body>
+	
+		<div class="buttoncontainer">
+			<a class="button">
+				<span class="snake"></span>
+				<span class="snake"></span>
+				<span class="snake"></span>
+				<span class="snake"></span>
+				Space Invaders
+			</a>
+            <p>Press Space to fire torpedoes, Ctrl to fire Laser, arrow up and arrow down to move up/down <br> Click button to Start!</p>
+		</div>
 
-	<div class="gamecontainer">
-		
-        	<h2>Score: </h2>
+		<div id="background">
+
+			<h2>Score: </h2>
 			<div id="spaceship"></div>
 			<div id="rockets"></div>
 			<div id="lasers"></div>
 			<div id="explosions"></div>
 			<div id="aliens"></div>
 
-	</div>
+		</div>
 
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/main.js" async></script>
 	<script src="https://code.jquery.com/jquery-3.5.0.min.js"
-		integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+		integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous" defer></script>
 
 </body>
 

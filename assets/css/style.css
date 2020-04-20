@@ -1,39 +1,194 @@
 
-/* flaticon attribution = <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
+/* ----- overlay settings ----- */
 
-body {
-    background-color: #11041d;
+h2 {
+    color: #06e4f0;
+    margin: 20px;
 }
 
-/*----- Html game elements -----*/
+p {
+    position: relative;
+    display: inline-block;
+    top: 70px;
+    color: #06e4f0;
+    font-size: 18px;
+    letter-spacing: 1.3px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.gamecontainer {
+    position:relative;
+    margin: 0 auto;
+    height: 800px;
+    width: 1200px;
+    overflow: hidden;
+}
 
 #background {
-    background-image: url("images/11.jpg");
-    background-color: #000;
+    display: none;
+    background-image: url("../images/11.jpg");
     background-size: cover;
     overflow: hidden;
-    height: 1000px;
-    width: 1200px;
-    position: relative;
-    animation: movingback 60s linear infinite;
+    height: 800px;
+    width: 1600px;
+    position: absolute;
+    animation: scrollingback 120s linear infinite;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes scrollingback {
   from {
-    background-position-y: 0px;
+    background-position-x: 0px;
   }
   to {
-    background-position-y: 800px;
+    background-position-x: -1200px;
   }
 }
 
+.buttoncontainer {
+    z-index: 3;
+    position: absolute;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 1200px;
+    flex-direction: column;
+    background: #000;
+}
+
+.button {
+    z-index: 5;
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 10px;
+    color: #06e4f0;
+    font-size: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+/*----- Button styling with snake -----*/
+
+.button:hover {
+    background: #06e4f0;
+    color: #000;
+    box-shadow: 0 0 5px #06e4f0, 0 0 25px #06e4f0, 0 0 50px #06e4f0, 0 0 200px #06e4f0;
+}
+
+a .snake {
+    position: absolute;
+    display: block;
+}
+
+a .snake:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #06e4f0);
+    animation: snake1 1s linear infinite;
+}
+
+@keyframes snake1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+a .snake:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #06e4f0);
+    animation: snake2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+@keyframes snake2 {
+    0% {
+        top: -100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
+}
+
+a .snake:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #06e4f0);
+    animation: snake3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes snake3 {
+    0% {
+        right: -100%;
+    }
+    50%, 100% {
+        right: 100%;
+    }
+}
+
+a .snake:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #06e4f0);
+    animation: snake4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes snake4 {
+    0% {
+        bottom: -100%;
+    }
+    50%, 100% {
+        bottom: 100%;
+    }
+}
+
+/*----- HTML Game Elements -----*/
+
 #spaceship {
-    background-image: url("assets/img/spaceship.png");
+    background-image: url("../images/spaceship.png");
+    transform: rotate(90deg);
     background-size: cover;
     height: 30px;
     width: 30px;
     position: absolute;
-    top: 750px;
-    left: 550px;
+    top: 400px;
+    left: 100px;
+}
+
+.alien {
+    background-image: url("../images/enemy.png");
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+}
+
+.laser {
+    background-image: url("../images/laser.png");
+    transform: rotate(270deg);
+    background-size: cover;
+    height: 10px;
+    width: 4px;
+    position: absolute;
 }
