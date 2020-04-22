@@ -1,24 +1,12 @@
 
-/* ----- overlay settings ----- */
+/*----- overlay settings */
 
-h2 {
-    color: #06e4f0;
-    margin: 20px;
-}
-
-p {
-    position: relative;
-    display: inline-block;
-    top: 70px;
-    color: #06e4f0;
-    font-size: 18px;
-    letter-spacing: 1.3px;
-    line-height: 30px;
-    text-align: center;
+body {
+    background-color: #000;
 }
 
 .gamecontainer {
-    position:relative;
+    position: relative;
     margin: 0 auto;
     height: 800px;
     width: 1200px;
@@ -33,7 +21,7 @@ p {
     height: 800px;
     width: 1600px;
     position: absolute;
-    animation: scrollingback 120s linear infinite;
+    animation: scrollingback 40s linear infinite;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -42,7 +30,7 @@ p {
     background-position-x: 0px;
   }
   to {
-    background-position-x: -1200px;
+    background-position-x: -1600px;
   }
 }
 
@@ -60,6 +48,24 @@ p {
     background: #000;
 }
 
+h2 {
+    color: #06e4f0;
+    margin: 20px;
+}
+
+p {
+    position: relative;
+    display: inline-block;
+    top: 70px;
+    color: #06e4f0;
+    font-size: 18px;
+    letter-spacing: 1.3px;
+    line-height: 30px;
+    text-align: center;
+}
+
+/*----- Button styling with snake -----*/
+
 .button {
     z-index: 5;
     position: relative;
@@ -75,12 +81,14 @@ p {
     transition: 0.5s;
 }
 
-/*----- Button styling with snake -----*/
-
 .button:hover {
     background: #06e4f0;
     color: #000;
     box-shadow: 0 0 5px #06e4f0, 0 0 25px #06e4f0, 0 0 50px #06e4f0, 0 0 200px #06e4f0;
+}
+
+a:hover, p:hover {
+    cursor: pointer;
 }
 
 a .snake {
@@ -163,7 +171,7 @@ a .snake:nth-child(4) {
     }
 }
 
-/*----- HTML Game Elements -----*/
+/*-----  -----*/
 
 #spaceship {
     background-image: url("../images/spaceship.png");
@@ -184,6 +192,27 @@ a .snake:nth-child(4) {
     position: absolute;
 }
 
+#rockets {
+    height: 800px;
+    width: 1200px;
+    position: absolute;
+}
+
+.rocket {
+    background-image: url("../images/missile2.png");
+    background-size: cover;
+    transform: rotate(270deg);
+    height: 15px;
+    width: 12px;
+    position: absolute;
+}
+
+#lasers {
+    height: 800px;
+    width: 1200px;
+    position: absolute;
+}
+
 .laser {
     background-image: url("../images/laser.png");
     transform: rotate(270deg);
@@ -191,4 +220,28 @@ a .snake:nth-child(4) {
     height: 10px;
     width: 4px;
     position: absolute;
+}
+
+#explosions {
+    height: 800px;
+    width: 1200px;
+    position: absolute;
+}
+
+.explosion {
+    background-image: url("../images/explosion.png");
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    animation: explosive 200ms forwards;
+}
+
+@keyframes explosive {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.3);
+  }
 }

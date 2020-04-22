@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<title>Space Invaders</title>
-	<link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-
-	<div class="gamecontainer">
-		<div class="buttoncontainer">
-			<a class="button">
-				<span class="snake"></span>
-				<span class="snake"></span>
-				<span class="snake"></span>
-				<span class="snake"></span>
-				Space Invaders
-			</a>
-			<p>Press Space to fire torpedoes, Ctrl to fire Laser, arrow up and arrow down to move up/down
-				<br> Click button to Start!</p>
-		</div>
-
-		<div id="background">
-
-			<h2>Score: </h2>
-			<div id="spaceship"></div>
-			<div id="lasers"></div>
-			<div id="aliens"></div>
-
-		</div>
-	</div>
-
-	<script src="assets/js/main.js" async></script>
-	<script src="https://code.jquery.com/jquery-3.5.0.min.js"
-		integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous" defer></script>
-
-</body>
+   <head>
+      <title>Alien Invaders</title>
+      <link rel="stylesheet" href="assets/css/style.css">
+   </head>
+   <body>
+      <div class="gamecontainer">
+         <div class="buttoncontainer">
+            <a class="button">
+            <span class="snake"></span>
+            <span class="snake"></span>
+            <span class="snake"></span>
+            <span class="snake"></span>
+            Alien Invaders
+            </a>
+            <p>Press Space to fire torpedoes, Ctrl to fire Laser, arrow up and arrow down to move up/down
+               <br> Click button to Start!
+            </p>
+         </div>
+         <div id="background">
+            <h2 id="score">Score: </h2>
+            <div id="spaceship"></div>
+            <div id="rockets"></div>
+            <div id="lasers"></div>
+            <div id="explosions"></div>
+            <div id="aliens"></div>
+         </div>
+      </div>
+      <script src="assets/js/main.js" async></script>
+      <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous" defer></script>
+   </body>
 </html>
