@@ -38,18 +38,17 @@ The primary target audience are collaborators/employers in the game industry who
 
 1. As an employer who recieved a link to Johans website, I want to see the game and test it to judge his skills, so that I can assess if he's eligible for a position.
 
-2. As an assessor I will judge the website on the totality of looks, responsiveness, documentation and functions among other things, so that I can assess his score.
+2. As an assessor I will judge the website on the totality of looks, documentation and functions among other things, I will take a particular look at the Javascript portion of the page, so that I can assess his score.
 
-3. As a collaborator I want to see if Johan can be of use in a project, so I want to test Johans game. Additionally I want to see how the particular functions in the game are written to see if this person is needed in our organization.
+3. As a collaborator I want to see if Johan can be of use in a project, so I want to test Johans game. Additionally I want to see how the particular functions in the game are written to see how the code is written.
 
 
 
 #### II. Wireframes: <a name="UX3"></a>
 
-* [Wireframes.pdf](assets/wireframes/wireframes.pdf)
+* [Wireframes.pdf](assets/wireframes/wireframe.pdf)
 
-I changed a lot from my initial wireframes procedurally during the development, 
-it took a lot of time testing better layouts and I learned the importance of a well thought out initial wireframe.
+I changed the direction of the game to go horizontally instead of vertical since I wanted to stand out from other examples of similar games I found on the Internet.
 
 1. Initially I changed the heading into a very long hovering slidebar, later I understood it to be impractical so I made a centralised unfolding Home nav with 3 more buttons sliding out of it in 3 directions.
 In the end I settled for a regular Bootstrap navbar anyway because my skills at the moment wasn't up to the task of making it fully responsive for mobile screens. At least not with the looming deadline.
@@ -70,8 +69,7 @@ In the end I settled for a regular Bootstrap navbar anyway because my skills at 
 I watched many videos on the internet where I followed along the coding even if nothing made sense at all, but then suddenly some fruition came slowly to be
 when I tried tampering with it on my own and finally a breakthrough came, I made my own laser cannon!.
 
-* Late in the process I realized my 4 page Setup didnt look all that good since some pages seemed more relevant than others, specifically Contact and About.
-With a one page frame I could sort in less crucial content with crucial content that made it seem better in my eyes.
+* I imported the moveAliens function from one youtube video, however I modified it to increase speed, and added an if statement to bounce the aliens back when they touch my boundaries
 
 * Lorem ipsum dolor
 
@@ -89,13 +87,13 @@ Also I am reluctant about using Javascript components since I don't understand i
 
 ## 2. Features <a name="Features"></a>
 
-* Bootstrap navbar
+* Spaceship, aliens, rocket pictures from flaticon.com
 
-* Bootstrap grid layout
+* Other pictures were found on the web
 
 * Hover effects on all navbar list items, buttons and anchors from hover.css by Ian Lunn
 
-* Animated splash welcome for landing section
+* CSS animated scifi button with on("click") function to open the game by a slideUp
 
 * Slideshows with three buttons for switching to different pictures of my projects, the projects have direct links in the adjacent project descriptions.
 
@@ -144,8 +142,8 @@ Linked buttons are put in place under the text for each of these 3 portfolio-ite
 
 #### I. Testing Functionality <a name="Testing2"></a>
 
-1. I have checked that all links go where they should
-2. I have tested the webpage in Chrome Dev Tools to see responsive scaling for different screen sizes.
+1. I have done manual testing throughout the development process, because I didn't understand how to implement jasmine testing during development of my functions, the fastest way seemed to be to just open the preview window and check the function.
+2. I have however added Jasmine at the end of my development process to do typeof checks against my functions and score Counter.
 3. I have run the HTML through [W3C HTML Validator](https://validator.w3.org) to check for errors in the code, none such observed.
 4. I have run the CSS code through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to check for errors in the code, none such observed.
 5. I formatted the HTML through the use of [Free Formatter](www.freeformatter.com/html-formatter.html)
@@ -161,7 +159,8 @@ Linked buttons are put in place under the text for each of these 3 portfolio-ite
 
 2. As a collaborator I want to go to Johans website to check out his portfolio, to see his eligibility for inclusion in my development team.
 
-    * Click portfolio in navbar or scroll down to the portfolio and check each item, see different pictures included in the slideshows by clicking the bottom buttons.
+    * 
+    Click portfolio in navbar or scroll down to the portfolio and check each item, see different pictures included in the slideshows by clicking the bottom buttons.
 
 3. As an assessor I go to Johans website determined to check every nook and cranny among which..
 
@@ -185,6 +184,18 @@ The following process was used to deploy the project:
 5. Select Source: master branch
 6. Retrieve the link to the deployed website
 
+### How to run this project locally
+​
+To clone this project from GitHub:
+1. At the top of this repository, click the green button **Clone or download**.
+2. In the Clone with HTTPs section, copy the clone URL for the repository. 
+3. Open your favourite terminal (cmd, powershell, bash, git bash, etc.)
+4. Change the current working directory to the location where you want the cloned directory to be made.
+5. Type `git clone`, and then paste the URL you copied in Step 2.
+```console
+git clone https://github.com/Eventyret/vscode-bcdn.git
+```
+6. Press Enter. Your local clone will be created.
 
 
 ## 7. Credits <a name="Credits"></a>
