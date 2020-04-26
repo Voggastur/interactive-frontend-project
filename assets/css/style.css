@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
 /*----- overlay settings */
 
@@ -21,11 +22,22 @@ body {
     height: 800px;
     width: 1600px;
     position: absolute;
-    animation: scrollingback 40s linear infinite;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    -webkit-animation: sidescroller 40s linear infinite;
+            animation: sidescroller 40s linear infinite;
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes scrollingback {
+@-webkit-keyframes sidescroller {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -1600px;
+  }
+}
+
+@keyframes sidescroller {
   from {
     background-position-x: 0px;
   }
@@ -38,22 +50,34 @@ body {
     z-index: 3;
     position: absolute;
     margin: 0 auto;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 800px;
     width: 1200px;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background: #000;
 }
 
 h2 {
+    font-family: 'Orbitron', sans-serif;
     color: #06e4f0;
     margin: 20px;
 }
 
 p {
+    font-family: 'Orbitron', sans-serif;
     position: relative;
     display: inline-block;
     top: 70px;
@@ -67,6 +91,7 @@ p {
 /*----- Button styling with snake -----*/
 
 .button {
+    font-family: 'Orbitron', sans-serif;
     z-index: 5;
     position: relative;
     display: inline-block;
@@ -78,13 +103,16 @@ p {
     text-transform: uppercase;
     letter-spacing: 4px;
     overflow: hidden;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
 }
 
 .button:hover {
     background: #06e4f0;
     color: #000;
-    box-shadow: 0 0 5px #06e4f0, 0 0 25px #06e4f0, 0 0 50px #06e4f0, 0 0 200px #06e4f0;
+    -webkit-box-shadow: 0 0 5px #06e4f0, 0 0 25px #06e4f0, 0 0 50px #06e4f0, 0 0 200px #06e4f0;
+            box-shadow: 0 0 5px #06e4f0, 0 0 25px #06e4f0, 0 0 50px #06e4f0, 0 0 200px #06e4f0;
 }
 
 a:hover, p:hover {
@@ -100,9 +128,21 @@ a .snake:nth-child(1) {
     top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 1px;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), to(#06e4f0));
+    background: -o-linear-gradient(left, transparent, #06e4f0);
     background: linear-gradient(90deg, transparent, #06e4f0);
-    animation: snake1 1s linear infinite;
+    -webkit-animation: snake1 1s linear infinite;
+            animation: snake1 1s linear infinite;
+}
+
+@-webkit-keyframes snake1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
 }
 
 @keyframes snake1 {
@@ -117,11 +157,24 @@ a .snake:nth-child(1) {
 a .snake:nth-child(2) {
     top: -100%;
     right: 0;
-    width: 2px;
+    width: 1px;
     height: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#06e4f0));
+    background: -o-linear-gradient(top, transparent, #06e4f0);
     background: linear-gradient(180deg, transparent, #06e4f0);
-    animation: snake2 1s linear infinite;
-    animation-delay: 0.25s;
+    -webkit-animation: snake2 1s linear infinite;
+            animation: snake2 1s linear infinite;
+    -webkit-animation-delay: 0.25s;
+            animation-delay: 0.25s;
+}
+
+@-webkit-keyframes snake2 {
+    0% {
+        top: -100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
 }
 
 @keyframes snake2 {
@@ -137,10 +190,23 @@ a .snake:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
-    height: 2px;
+    height: 1px;
+    background: -webkit-gradient(linear, right top, left top, from(transparent), to(#06e4f0));
+    background: -o-linear-gradient(right, transparent, #06e4f0);
     background: linear-gradient(270deg, transparent, #06e4f0);
-    animation: snake3 1s linear infinite;
-    animation-delay: 0.5s;
+    -webkit-animation: snake3 1s linear infinite;
+            animation: snake3 1s linear infinite;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+}
+
+@-webkit-keyframes snake3 {
+    0% {
+        right: -100%;
+    }
+    50%, 100% {
+        right: 100%;
+    }
 }
 
 @keyframes snake3 {
@@ -155,11 +221,24 @@ a .snake:nth-child(3) {
 a .snake:nth-child(4) {
     bottom: -100%;
     left: 0;
-    width: 2px;
+    width: 1px;
     height: 100%;
+    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#06e4f0));
+    background: -o-linear-gradient(bottom, transparent, #06e4f0);
     background: linear-gradient(360deg, transparent, #06e4f0);
-    animation: snake4 1s linear infinite;
-    animation-delay: 0.75s;
+    -webkit-animation: snake4 1s linear infinite;
+            animation: snake4 1s linear infinite;
+    -webkit-animation-delay: 0.75s;
+            animation-delay: 0.75s;
+}
+
+@-webkit-keyframes snake4 {
+    0% {
+        bottom: -100%;
+    }
+    50%, 100% {
+        bottom: 100%;
+    }
 }
 
 @keyframes snake4 {
@@ -175,7 +254,9 @@ a .snake:nth-child(4) {
 
 #spaceship {
     background-image: url("../images/spaceship.png");
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
     background-size: cover;
     height: 30px;
     width: 30px;
@@ -201,9 +282,11 @@ a .snake:nth-child(4) {
 .rocket {
     background-image: url("../images/missile2.png");
     background-size: cover;
-    transform: rotate(270deg);
-    height: 15px;
-    width: 12px;
+    -webkit-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+            transform: rotate(270deg);
+    height: 20px;
+    width: 14px;
     position: absolute;
 }
 
@@ -215,10 +298,26 @@ a .snake:nth-child(4) {
 
 .laser {
     background-image: url("../images/laser.png");
-    transform: rotate(270deg);
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
     background-size: cover;
-    height: 10px;
-    width: 4px;
+    height: 18px;
+    width: 7px;
+    position: absolute;
+}
+
+#energy {
+    height: 800px;
+    width: 1200px;
+    position: absolute;
+}
+
+.energybomb {
+    background-image: url("../images/energy.png");
+    background-size: cover;
+    height: 15px;
+    width: 15px;
     position: absolute;
 }
 
@@ -234,14 +333,28 @@ a .snake:nth-child(4) {
     width: 40px;
     height: 40px;
     position: absolute;
-    animation: explosive 200ms forwards;
+    -webkit-animation: explosive 200ms forwards;
+            animation: explosive 200ms forwards;
+}
+
+@-webkit-keyframes explosive {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
 }
 
 @keyframes explosive {
   from {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   to {
-    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
   }
 }
