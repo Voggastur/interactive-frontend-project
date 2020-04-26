@@ -3,8 +3,8 @@ $(document).ready(function () {
         $(".buttoncontainer").slideUp("slow");
         $("#background").show();
         $("#score").html("Score " + score);
-        setInterval(gameLoop, 50);
-        setInterval(energyBombs, 100);
+        setInterval(gameLoop, 30);
+        setInterval(triggerBombs, 90);
         gameLoop();
     });
 });
@@ -35,7 +35,7 @@ var spaceship = {
     left: 100
 };
 
-function moveSpaceship() { // moveSpaceship() function is called every time we do a keydown in the next function, and this function specifies the new top/left coordinates
+function moveSpaceship() { // moveSpaceship() function is called every time we do a keydown in the next function, this function specifies the new top/left coordinates on screen
     $("#spaceship").css("top", spaceship.top + "px");
     $("#spaceship").css("left", spaceship.left + "px");
 }
@@ -100,15 +100,19 @@ function moveLasers() {
     }
 }
 
+function triggerBombs() {
+    energy.push({
+        top: aliens[alien].top,
+        left: aliens[alien].left
+    });
+};
+
+
 function pushBombs() { // this function handles the enemy weapons
     document.getElementById("energy").innerHTML = "";
     for (var energyBomb = 0; energyBomb < energy.length; energyBomb += 1) {
         document.getElementById("energy").innerHTML += `<div class='energybomb' style='left:${energy[energyBomb].left}px;top:${energy[energyBomb].top}px;'></div>`
         // alienBombs are pasted the same way as before
-        energy.push({
-            top: aliens[alien].top,
-            left: aliens[alien].left
-        });
     };
 };
 
@@ -165,9 +169,8 @@ function collisionDetection(score) {
                 // Collision has occured, remove weapon and alien from game, increment score
                 aliens.splice(alien, 1);
                 rockets.splice(rocket, 1);
+                score += 1;
                 console.log("ROCKETHIT");
-                var score = 0;
-                ++score;
                 return score; // I try to return score to my variable and show it but it's not working, score keeps showing 0
             };
         };
@@ -179,23 +182,18 @@ function collisionDetection(score) {
                 // Collision occured, remove weapon and alien from game, increment score
                 aliens.splice(alien, 1);
                 lasers.splice(laser, 1);
+                score += 1;
                 console.log("LASERHIT");
-                var score;
-                ++score;
                 return score; // I try to return score to my variable and show it but it's not working, score keeps showing 0
             };
-            if (aliens[alien].length < 1) {
-                $('#winnerText').text('Congratulations, your score is ${score}');
-                $('#winnerModal').modal('toggle');
-            }
         };
     };
 };
 
 function gameOver() {
-    if (aliens[alien].length < 1) {
-        $('#winnerText').text('Congratulations, your score is ${score}');
-        $('#winnerModal').modal('toggle');
+    if (score = 8) {
+        $(".buttoncontainer").slideDown("slow");
+        $("#background").show();
     }
 };
 
