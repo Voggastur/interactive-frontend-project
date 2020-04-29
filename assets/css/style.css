@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
-/*----- overlay settings */
+/* ----- Overlay settings ----- */
+/* Alternative font color: #06e4f0; */
 
 body {
     background-color: #000;
@@ -72,7 +73,7 @@ body {
 
 h2 {
     font-family: 'Orbitron', sans-serif;
-    color: #06e4f0;
+    color: #4eec1d;
     margin: 20px;
 }
 
@@ -81,14 +82,14 @@ p {
     position: relative;
     display: inline-block;
     top: 70px;
-    color: #06e4f0;
+    color: #4eec1d;
     font-size: 18px;
     letter-spacing: 1.3px;
     line-height: 30px;
     text-align: center;
 }
 
-/*----- Button styling with snake -----*/
+/*----- Button styling with four snakes -----*/
 
 .button {
     font-family: 'Orbitron', sans-serif;
@@ -97,7 +98,7 @@ p {
     display: inline-block;
     padding: 25px 30px;
     margin: 40px 10px;
-    color: #06e4f0;
+    color: #4eec1d;
     font-size: 24px;
     text-decoration: none;
     text-transform: uppercase;
@@ -109,10 +110,10 @@ p {
 }
 
 .button:hover {
-    background: #06e4f0;
+    background: #4eec1d;
     color: #000;
-    -webkit-box-shadow: 0 0 5px #06e4f0, 0 0 25px #06e4f0, 0 0 50px #06e4f0, 0 0 200px #06e4f0;
-            box-shadow: 0 0 5px #06e4f0, 0 0 25px #06e4f0, 0 0 50px #06e4f0, 0 0 200px #06e4f0;
+    -webkit-box-shadow: 0 0 6px #4eec1d, 0 0 30px #4eec1d, 0 0 60px #4eec1d, 0 0 120px #4eec1d;
+            box-shadow: 0 0 6px #4eec1d, 0 0 30px #4eec1d, 0 0 60px #4eec1d, 0 0 120px #4eec1d;
 }
 
 a:hover, p:hover {
@@ -128,10 +129,10 @@ a .snake:nth-child(1) {
     top: 0;
     left: 0;
     width: 100%;
-    height: 1px;
-    background: -webkit-gradient(linear, left top, right top, from(transparent), to(#06e4f0));
-    background: -o-linear-gradient(left, transparent, #06e4f0);
-    background: linear-gradient(90deg, transparent, #06e4f0);
+    height: 3px;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), to(#4eec1d));
+    background: -o-linear-gradient(left, transparent, #4eec1d);
+    background: linear-gradient(90deg, transparent, #4eec1d);
     -webkit-animation: snake1 1s linear infinite;
             animation: snake1 1s linear infinite;
 }
@@ -157,11 +158,11 @@ a .snake:nth-child(1) {
 a .snake:nth-child(2) {
     top: -100%;
     right: 0;
-    width: 1px;
+    width: 3px;
     height: 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#06e4f0));
-    background: -o-linear-gradient(top, transparent, #06e4f0);
-    background: linear-gradient(180deg, transparent, #06e4f0);
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#4eec1d));
+    background: -o-linear-gradient(top, transparent, #4eec1d);
+    background: linear-gradient(180deg, transparent, #4eec1d);
     -webkit-animation: snake2 1s linear infinite;
             animation: snake2 1s linear infinite;
     -webkit-animation-delay: 0.25s;
@@ -190,10 +191,10 @@ a .snake:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
-    height: 1px;
-    background: -webkit-gradient(linear, right top, left top, from(transparent), to(#06e4f0));
-    background: -o-linear-gradient(right, transparent, #06e4f0);
-    background: linear-gradient(270deg, transparent, #06e4f0);
+    height: 3px;
+    background: -webkit-gradient(linear, right top, left top, from(transparent), to(#4eec1d));
+    background: -o-linear-gradient(right, transparent, #4eec1d);
+    background: linear-gradient(270deg, transparent, #4eec1d);
     -webkit-animation: snake3 1s linear infinite;
             animation: snake3 1s linear infinite;
     -webkit-animation-delay: 0.5s;
@@ -221,11 +222,11 @@ a .snake:nth-child(3) {
 a .snake:nth-child(4) {
     bottom: -100%;
     left: 0;
-    width: 1px;
+    width: 3px;
     height: 100%;
-    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#06e4f0));
-    background: -o-linear-gradient(bottom, transparent, #06e4f0);
-    background: linear-gradient(360deg, transparent, #06e4f0);
+    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#4eec1d));
+    background: -o-linear-gradient(bottom, transparent, #4eec1d);
+    background: linear-gradient(360deg, transparent, #4eec1d);
     -webkit-animation: snake4 1s linear infinite;
             animation: snake4 1s linear infinite;
     -webkit-animation-delay: 0.75s;
@@ -250,7 +251,7 @@ a .snake:nth-child(4) {
     }
 }
 
-/*-----  -----*/
+/*----- Game objects -----*/
 
 #spaceship {
     background-image: url("../images/spaceship.png");
@@ -328,7 +329,7 @@ a .snake:nth-child(4) {
 }
 
 .explosion {
-    background-image: url("../images/explosion.png");
+    background-image: url("../images/explosion2.png");
     background-size: cover;
     width: 40px;
     height: 40px;
