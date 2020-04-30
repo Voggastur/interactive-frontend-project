@@ -31,16 +31,16 @@ The aim of this website is to present my javascript skills as a front end develo
 
 ## 1. UX <a name="UX"></a>
 
-The primary target audience are collaborators/employers in the game industry who wish to see my portfolio, to assess my Javascript skills in particular.
+The primary target audience are collaborators/employers in the game industry who wish to see my knowledge in Javascript/jQuery in particular.
 
 
 #### I. User Stories: <a name="UX2"></a>
 
 1. As an employer who recieved a link to Johans website, I want to see the game and test it to judge his skills, so that I can assess if he's eligible for a position.
 
-2. As an assessor I will judge the website on the totality of looks, documentation and functions among other things, I will take a particular look at the Javascript portion of the page, so that I can assess his score.
+2. As an assessor I will judge the website on the totality of looks, documentation, testing, and functions among other things. I will take a particular look at the Javascript portion of the page, so that I can assess his score.
 
-3. As a collaborator I want to see if Johan can be of use in a project, so I want to test Johans game. Additionally I want to see how the particular functions in the game are written to see how the code is written.
+3. As a collaborator I want to see if Johan can be of use in a project, so I want to test Johans game. Additionally I want to scroll through the game.js to eye through the written functions for the game and see Johans familiarity with the language.
 
 
 
@@ -48,12 +48,11 @@ The primary target audience are collaborators/employers in the game industry who
 
 * [Wireframes.pdf](assets/wireframes/wireframe.pdf)
 
-I changed the direction of the game to go horizontally instead of vertical since I wanted to stand out from other examples of similar games I found on the Internet.
 
-1. Initially I changed the heading into a very long hovering slidebar, later I understood it to be impractical so I made a centralised unfolding Home nav with 3 more buttons sliding out of it in 3 directions.
-In the end I settled for a regular Bootstrap navbar anyway because my skills at the moment wasn't up to the task of making it fully responsive for mobile screens. At least not with the looming deadline.
+1. I changed the direction of the game to scroll horizontal instead of vertical since I wanted to stand out from other examples I found on the internet.
 
-2. The idea of the navbar-brand came to be when I saw styled singular letters online, so I searched google pictures for 2 icons of J and K, my initials, and put them next to each other in an online paint editor editor and made a new favicon with the size 512x512. I used a .png for navbar-brand and converted it to .ico for my favicon.ico head link.
+2. The spaceship can move in 4 directions, up, right, down and left. Even though only sideways movement is vital to the game core, I thought it could enhance the game experience when I learned how to add new keytriggers.
+The key to this knowledge for me was when I learned that every button has its own keyCode and I looked up console.log(e.keyCode), and lastly how to put them to use.
 
 3. The boxed layout of the wireframes was deemed to be impractical for the amount of content. So I settled for making sections of one longer page with the content designated for Portfolio, About and Contact.
 
@@ -65,11 +64,10 @@ In the end I settled for a regular Bootstrap navbar anyway because my skills at 
 
 #### III. Development Process: <a name="UX4"></a>
 
-* I struggled initially to understand how to begin writing Javascript on my own. So I began researching until I settled for a simpler type of javascript game.
-I watched many videos on the internet where I followed along the coding even if nothing made sense at all, but then suddenly some fruition came slowly to be
-when I tried tampering with it on my own and finally a breakthrough came, I made my own laser cannon!.
+* I struggled initially to understand how to begin writing Javascript on my own. So I began researching until I settled for a simpler type of space shooter game. I watched many videos and tried followed along as they coded nonsense before my tiring eyes, and it didn't make much sense at all. 
+However small increments of experience came ticking in as I tried modifying the code myself, and then brief tides of progress that instilled a great feeling of pride, and so i was on my way to make my own laser cannon!
 
-* I imported the moveAliens function from one youtube video, however I modified it to increase speed, and added an if statement to bounce the aliens back when they touch my boundaries
+* The moveAliens function was modified to increase speed, and an if statement bounces the aliens back when they touch my boundaries, as well as push them closer to the player by 50pixels per wallbounce
 
 * Lorem ipsum dolor
 
@@ -87,13 +85,14 @@ Also I am reluctant about using Javascript components since I don't understand i
 
 ## 2. Features <a name="Features"></a>
 
-* Spaceship, aliens, rocket pictures from flaticon.com
+* The spaceship, aliens, rocket image and a few more was found on the flaticon.com website, other pictures were found by google picture searches.
 
-* Other pictures were found on the web
+* The spaceship is controllable with arrows Up, Right, Down and Left, as well as a Torpedo weapon on Space and a Laser Cannon on Ctrl.
 
-* Hover effects on all navbar list items, buttons and anchors from hover.css by Ian Lunn
+* The two weapons have different properties, the torpedo image is slightly wider and higher and so has a higher chance to trigger the collisionDetection function,
+to imitate splash damage the torpedo splices 2 alien out of the aliens array-object, however the laser cannon particles travel much faster and is easier to hit with.
 
-* CSS animated scifi button with on("click") function to open the game by a slideUp
+* CSS animated scifi button with on("click") function to initialize the game with jQuery .slideUp
 
 * Slideshows with three buttons for switching to different pictures of my projects, the projects have direct links in the adjacent project descriptions.
 
@@ -142,8 +141,8 @@ Linked buttons are put in place under the text for each of these 3 portfolio-ite
 
 #### I. Testing Functionality <a name="Testing2"></a>
 
-1. I have done manual testing throughout the development process, because I didn't understand how to implement jasmine testing during development of my functions, the fastest way seemed to be to just open the preview window and check the function.
-2. I have however added Jasmine at the end of my development process to do typeof checks against my functions and score Counter.
+1. I have done manual testing throughout the development process, because I didn't understand how to implement test-driven-development effectively with jasmine in realtime.
+2. However I have added a Jasmine test suite at the end of my development process to do typeof checks against my functions, objects, numbers and variables.
 3. I have run the HTML through [W3C HTML Validator](https://validator.w3.org) to check for errors in the code, none such observed.
 4. I have run the CSS code through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to check for errors in the code, none such observed.
 5. I formatted the HTML through the use of [Free Formatter](www.freeformatter.com/html-formatter.html)
@@ -153,14 +152,13 @@ Linked buttons are put in place under the text for each of these 3 portfolio-ite
 
 #### II. User stories testing <a name="Testing3"></a>
 
-1. As an employer I go to Johans website determined to see his skills, if he's really as good as he postulated in his CV.
+1. As an employer I go to see Johans game determined to see his skills, if he's really as good as he postulated in his CV.
 
-    * Click the profile button in the navbar or scroll to the profile section of the page.
+    * I click the button to start the game, 
 
-2. As a collaborator I want to go to Johans website to check out his portfolio, to see his eligibility for inclusion in my development team.
+2. As a collaborator I check out Johans game to evaluate his skills, to measure his eligibility for inclusion in my development team.
 
-    * 
-    Click portfolio in navbar or scroll down to the portfolio and check each item, see different pictures included in the slideshows by clicking the bottom buttons.
+    * Click button to start the game, ideally I will go back and forth into google developer mode to see the console, and javascript working behind the scenes.
 
 3. As an assessor I go to Johans website determined to check every nook and cranny among which..
 
@@ -173,8 +171,8 @@ Linked buttons are put in place under the text for each of these 3 portfolio-ite
 ## 6. Deployment <a name="Deployment"></a>
 
 This project was developed in Gitpod.
-The project has been deployed to Github Pages - [Deployed Website](https://voggastur.github.io/user-centric-frontend-project/)
-The repository for this website can be found at this GitHub link: [User Centric Frontend Repository](https://github.com/Voggastur/user-centric-frontend-project)
+The project has been deployed to Github Pages - [Deployed Website](https://voggastur.github.io/interactive-frontend-project/)
+The repository for this website can be found at this GitHub link: [Interactive Frontend Repository](https://github.com/Voggastur/interactive-frontend-project)
 
 The following process was used to deploy the project:
 1. Log into GitHub.
@@ -184,7 +182,7 @@ The following process was used to deploy the project:
 5. Select Source: master branch
 6. Retrieve the link to the deployed website
 
-### How to run this project locally
+#### How to run this project locally
 ​
 To clone this project from GitHub:
 1. At the top of this repository, click the green button **Clone or download**.
@@ -193,7 +191,7 @@ To clone this project from GitHub:
 4. Change the current working directory to the location where you want the cloned directory to be made.
 5. Type `git clone`, and then paste the URL you copied in Step 2.
 ```console
-git clone https://github.com/Eventyret/vscode-bcdn.git
+git clone https://github.com/Voggastur/interactive-frontend-project
 ```
 6. Press Enter. Your local clone will be created.
 
