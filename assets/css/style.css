@@ -374,7 +374,7 @@ a .snake:nth-child(4) {
 }
 
 .energybomb {
-    background-image: url("../images/energy.png");
+    background-image: url("../images/energy2.png");
     background-size: cover;
     height: 15px;
     width: 15px;
