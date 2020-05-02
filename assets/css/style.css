@@ -71,17 +71,76 @@ body {
     background: #000;
 }
 
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #4eec1d;
+    position: relative;
+    display: block;
+    margin: 100px;
+    padding: 25px 30px;
+    font-size: 4em;
+    font-weight: 200;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+h1:hover {
+    cursor: pointer;
+}
+
+h1 .snake {
+    position: absolute;
+    display: block;
+}
+
+h1 .snake {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2em;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), to(#30701d));
+    background: -o-linear-gradient(left, transparent, #30701d);
+    background: linear-gradient(90deg, transparent, #30701d);
+    -webkit-animation: snake 4s linear infinite;
+            animation: snake 4s linear infinite;
+}
+
+@-webkit-keyframes snake {
+    0% {
+        left: -100%;
+    }
+    75%, 100% {
+        left: 100%;
+    }
+}
+
+@keyframes snake {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
 h2 {
     font-family: 'Orbitron', sans-serif;
     color: #4eec1d;
-    margin: 20px;
+    display: block;
+    top: 20px;
+    left: 20px;
 }
 
 p {
     font-family: 'Orbitron', sans-serif;
     position: relative;
     display: inline-block;
-    top: 70px;
+    margin: 50px;
     color: #4eec1d;
     font-size: 18px;
     letter-spacing: 1.3px;
@@ -322,40 +381,4 @@ a .snake:nth-child(4) {
     position: absolute;
 }
 
-#explosions {
-    height: 800px;
-    width: 1200px;
-    position: absolute;
-}
 
-.explosion {
-    background-image: url("../images/explosion2.png");
-    background-size: cover;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    -webkit-animation: explosive 200ms forwards;
-            animation: explosive 200ms forwards;
-}
-
-@-webkit-keyframes explosive {
-  from {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3);
-  }
-}
-
-@keyframes explosive {
-  from {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3);
-  }
-}
