@@ -1,7 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
+/*----- Title styling with animation -----*/
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #4eec1d;
+    position: relative;
+    display: block;
+    margin: 100px;
+    padding: 25px 30px;
+    font-size: 4em;
+    font-weight: 200;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+h1:hover {
+    cursor: pointer;
+}
+
+h1 .snake {
+    position: absolute;
+    display: block;
+}
+
+h1 .snake {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2em;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), to(#30701d));
+    background: -o-linear-gradient(left, transparent, #30701d);
+    background: linear-gradient(90deg, transparent, #30701d);
+    -webkit-animation: snake 4s linear infinite;
+            animation: snake 4s linear infinite;
+}
+
+@-webkit-keyframes snake {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+@keyframes snake {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
 /* ----- Overlay settings ----- */
-/* Alternative font color: #06e4f0; */
 
 body {
     background-color: #000;
@@ -71,63 +129,6 @@ body {
     background: #000;
 }
 
-h1 {
-    font-family: 'Orbitron', sans-serif;
-    color: #4eec1d;
-    position: relative;
-    display: block;
-    margin: 100px;
-    padding: 25px 30px;
-    font-size: 4em;
-    font-weight: 200;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    overflow: hidden;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
-}
-
-h1:hover {
-    cursor: pointer;
-}
-
-h1 .snake {
-    position: absolute;
-    display: block;
-}
-
-h1 .snake {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2em;
-    background: -webkit-gradient(linear, left top, right top, from(transparent), to(#30701d));
-    background: -o-linear-gradient(left, transparent, #30701d);
-    background: linear-gradient(90deg, transparent, #30701d);
-    -webkit-animation: snake 4s linear infinite;
-            animation: snake 4s linear infinite;
-}
-
-@-webkit-keyframes snake {
-    0% {
-        left: -100%;
-    }
-    75%, 100% {
-        left: 100%;
-    }
-}
-
-@keyframes snake {
-    0% {
-        left: -100%;
-    }
-    50%, 100% {
-        left: 100%;
-    }
-}
-
 h2 {
     font-family: 'Orbitron', sans-serif;
     color: #4eec1d;
@@ -149,6 +150,8 @@ p {
 }
 
 /*----- Button styling with four snakes -----*/
+/*----- I learned to do this button from a youtube css tutorial and it is largely the same as in the video, 
+ however the scifi nature of the :hover glow effect makes it perfect for a scifi game, I used what I learned here to create the simple title animation -----*/
 
 .button {
     font-family: 'Orbitron', sans-serif;
@@ -312,7 +315,7 @@ a .snake:nth-child(4) {
 
 /*----- Game objects -----*/
 
-#spaceship {
+#spaceship { /*----- This is the player -----*/
     background-image: url("../images/spaceship.png");
     -webkit-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
@@ -325,7 +328,7 @@ a .snake:nth-child(4) {
     left: 100px;
 }
 
-.alien {
+.alien { /*----- This is the alien enemy -----*/
     background-image: url("../images/enemy.png");
     background-size: cover;
     height: 30px;
@@ -333,13 +336,13 @@ a .snake:nth-child(4) {
     position: absolute;
 }
 
-#rockets {
+#rockets { /*----- This overlay is used to push .rocket inside -----*/
     height: 800px;
     width: 1200px;
     position: absolute;
 }
 
-.rocket {
+.rocket { /*----- Player weapon on SPACE button -----*/
     background-image: url("../images/missile2.png");
     background-size: cover;
     -webkit-transform: rotate(270deg);
@@ -350,13 +353,13 @@ a .snake:nth-child(4) {
     position: absolute;
 }
 
-#lasers {
+#lasers { /*----- This overlay is used to push .laser inside -----*/
     height: 800px;
     width: 1200px;
     position: absolute;
 }
 
-.laser {
+.laser { /*----- Player weapon on CTRL button -----*/
     background-image: url("../images/laser.png");
     -webkit-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
@@ -367,13 +370,13 @@ a .snake:nth-child(4) {
     position: absolute;
 }
 
-#energy {
+#energy { /*----- This overlay is used to push the aliens .energybomb weapon inside -----*/
     height: 800px;
     width: 1200px;
     position: absolute;
 }
 
-.energybomb {
+.energybomb { /*----- Alien weapon -----*/
     background-image: url("../images/energy2.png");
     background-size: cover;
     height: 15px;
