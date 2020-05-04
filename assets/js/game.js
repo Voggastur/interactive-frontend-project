@@ -29,8 +29,6 @@ var aliens = [
 const alienStep = -50; // As aliens touch the boundaries on the transversal path, they will take a step -50 closer to the player
 var alienDirection = 3; // Direction of aliens will switch from either 3 or -3 as they touch the boundaries
 
-const gameWidth = $("#background").width(); // Alien boundary movement
-
 var spaceship = {
   // Spaceship object has defined top, left, width and height
   top: 400,
