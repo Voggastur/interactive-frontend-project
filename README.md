@@ -140,12 +140,13 @@ The key to this knowledge was to learn that every button has its own keyCode and
 
 * Gitpod IDE
 
+* Google Fonts
+
 * W3C Validator
 
 * Autoprefixer
 
 * Free Formatter
-
 
 
 ## 5. Testing <a name="Testing"></a>
