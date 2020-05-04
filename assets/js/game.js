@@ -2,9 +2,9 @@ $(document).ready(function () {
   $(".button").click(function () {
     $(".buttoncontainer").slideUp("slow"); //slideUp game menu
     $("#background").show(); // Show the game background
-    setInterval(removeBombs, 4750); // Removing bombs as they leave the game to avoid overload
+    setInterval(removeBombs, 5000); // Removing bombs as they leave the game to avoid overload
     removeBombs();
-    setInterval(triggerBombs, 4750); // Aliens drops bombs at this interval
+    setInterval(triggerBombs, 5000); // Aliens drops bombs at this interval
     triggerBombs();
     setInterval(gameLoop, 50); // gameLoop function is repeated every 50 ms
     gameLoop();
@@ -26,10 +26,10 @@ var aliens = [
   { left: 1150, top: 600, height: 30, width: 30 },
 ];
 
-var alienStep = -50; // As aliens touch the boundaries on the transversal path, they will take a step -50 closer to the player
+const alienStep = -50; // As aliens touch the boundaries on the transversal path, they will take a step -50 closer to the player
 var alienDirection = 3; // Direction of aliens will switch from either 3 or -3 as they touch the boundaries
 
-const gameWidth = $("#background").width(); // used as alien boundary for alien movements
+const gameWidth = $("#background").width(); // Alien boundary movement
 
 var spaceship = {
   // Spaceship object has defined top, left, width and height
@@ -40,19 +40,23 @@ var spaceship = {
 };
 
 $(document).keydown(function (e) {
-  if (e.keyCode === 40) {
+  if (e.keyCode === 40 && spaceship.top <= 760) {
+    // Limits to move outside of gamescreen which has a 1200x800 size
     // Move down
     spaceship.top += 10;
     moveSpaceship();
-  } else if (e.keyCode === 38) {
+  } else if (e.keyCode === 38 && spaceship.top >= 40) {
+    // Limit
     // Move up
     spaceship.top -= 10;
     moveSpaceship();
-  } else if (e.keyCode === 37) {
+  } else if (e.keyCode === 37 && spaceship.left >= 40) {
+    // Limit
     // Move left
     spaceship.left -= 5;
     moveSpaceship();
-  } else if (e.keyCode === 39) {
+  } else if (e.keyCode === 39 && spaceship.left <= 1100) {
+    // Limit
     // Move right
     spaceship.left += 5;
     moveSpaceship();
@@ -66,7 +70,7 @@ $(document).keydown(function (e) {
   } else if (e.keyCode === 17) {
     // Push lasers onto the game
     lasers.push({
-      top: spaceship.top - 10, // The lasercannon hangs under my left wing and the rocketpod under my right wing so the difference in .top coordinates are mainly cosmetical
+      top: spaceship.top - 10, // The lasercannon hangs under my left wing and the rocketpod under my right wing so the difference in .top coordinates are cosmetical
       left: spaceship.left,
     });
     pushLasers();
@@ -121,8 +125,8 @@ function triggerBombs() {
   // This function is on a setinterval nearly every 5 seconds whereas a bomb is pushed from the aliens.top and aliens.left coordinates
   for (var alien = 0; alien < aliens.length; ++alien) {
     energy.push({
-      top: aliens[0].top,
-      left: aliens[0].left,
+      top: aliens[3].top,
+      left: aliens[3].left,
     });
   }
 }
@@ -130,8 +134,8 @@ function triggerBombs() {
 function removeBombs() {
   for (var alien = 0; alien < aliens.length; ++alien) {
     // Iterate through the alien array
-    for (var i = 0; i < energy.length; ++i) {
-      // Iterate through the energy array, and remove object at setInterval nearly 4750 ms after launch
+    for (var energybomb = 0; energybomb < energy.length; ++energybomb) {
+      // Iterate through the energy array, and remove object at setInterval nearly 5s after launch
       energy.splice(i, 1);
     }
   }
@@ -189,7 +193,7 @@ function moveAliens() {
     for (
       var alien = 0;
       alien < aliens.length;
-      ++alien // iterate through aliens.length
+      ++alien // iterate through aliens.length so the whole array will do the next command
     )
       aliens[alien].left += alienStep; // Aliens take one step towards the player upon reaching gamewindows boundaries
   }
@@ -231,22 +235,19 @@ function collisionDetection() {
 }
 
 function checkGameover() {
-  // Show win game alert, return to gameMenu, and reload document; = to my knowledge at this point the only way to repopulate with aliens
-  var energybomb = {
-    left: document.getElementsByClassName("energybomb").left,
-    top: document.getElementsByClassName("energybomb").top,
-  };
+  // if condition == true: Show win game alert, slideDown menu and reload document; = to my knowledge at this point the only way to repopulate with aliens
   if (
     aliens.length == 0 || // If no aliens are left
-    aliens.left >= gameWidth || // or if the aliens reach the left side
-    (energybomb.top <= spaceship.top - 40 && // Trying to add collisionDetection for my own spaceship vs alien energybombs but its a nonfunctional "work in progress"
-      energybomb.top >= spaceship.top - 70 &&
-      energybomb.left >= spaceship.left &&
-      energybomb.left <= spaceship.left + 30)
+    aliens.left <= 50 // or if the aliens reach the left side
   ) {
     alert("Congratulations! The aliens are destroyed and Earth is saved!"); // Alert on winning the game
-    document.location.reload(); // Reload page to repopulate with aliens
+    $(".buttoncontainer").slideDown(1000);
+    setTimeout(reloadGame, 1000);
   }
+}
+
+function reloadGame() {
+  location.reload(); // Reload page to repopulate with aliens
 }
 
 function gameLoop() {
