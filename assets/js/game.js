@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $(".button").click(function () {
     $(".buttoncontainer").slideUp("slow"); //slideUp game menu
-    $("#background").show(); // Show the game background
+    $("#background").show(); // Show the scrolling game background
     setInterval(removeBombs, 5000); // Removing bombs as they leave the game to avoid overload
     removeBombs();
     setInterval(triggerBombs, 5000); // Aliens drops bombs at this interval
@@ -11,9 +11,9 @@ $(document).ready(function () {
   });
 });
 
-var lasers = []; // Spaceship weapons array
-var rockets = []; // Spaceship weapons array
-var energy = []; // Alien weapons array
+var lasers = []; // Spaceship weapons array, the actual laser will be pasted inside this array in pushLaser function, making use of the html #lasers overlay
+var rockets = []; // Spaceship weapons array, pasted similarly
+var energy = []; // Alien weapons array, similar to above weapons except triggers on Intervals set in the above $("button").click function
 
 var aliens = [
   { left: 1150, top: 250, height: 30, width: 30 }, // Aliens are placed at specific points
@@ -39,22 +39,22 @@ var spaceship = {
 
 $(document).keydown(function (e) {
   if (e.keyCode === 40 && spaceship.top <= 760) {
-    // Limits to move outside of gamescreen which has a 1200x800 size
+    // Limits to move outside of gamescreen(#background) which has a 1200x800 size
     // Move down
     spaceship.top += 10;
     moveSpaceship();
   } else if (e.keyCode === 38 && spaceship.top >= 40) {
-    // Limit
+    // Safety limit
     // Move up
     spaceship.top -= 10;
     moveSpaceship();
   } else if (e.keyCode === 37 && spaceship.left >= 40) {
-    // Limit
+    // Safety limit
     // Move left
     spaceship.left -= 5;
     moveSpaceship();
   } else if (e.keyCode === 39 && spaceship.left <= 1100) {
-    // Limit
+    // Safety limit
     // Move right
     spaceship.left += 5;
     moveSpaceship();
@@ -68,7 +68,7 @@ $(document).keydown(function (e) {
   } else if (e.keyCode === 17) {
     // Push lasers onto the game
     lasers.push({
-      top: spaceship.top - 10, // The lasercannon hangs under my left wing and the rocketpod under my right wing so the difference in .top coordinates are cosmetical
+      top: spaceship.top - 10, // The lasercannon hangs under players left wing and the rocketpod under players right wing so the difference in .top coordinates are cosmetical
       left: spaceship.left,
     });
     pushLasers();
@@ -76,8 +76,8 @@ $(document).keydown(function (e) {
 });
 
 function moveSpaceship() {
-  // moveSpaceship() function is called every time we do a keydown in the former function
-  $("#spaceship").css("top", spaceship.top + "px"); // New css style top/left coordinates are added to the element from the previous function
+  // moveSpaceship function is called every time we do a keydown in the former function
+  $("#spaceship").css("top", spaceship.top + "px"); // New css style top/left coordinates are added to the element from the previous .keydown function
   $("#spaceship").css("left", spaceship.left + "px");
 }
 
@@ -120,7 +120,7 @@ function moveLasers() {
 }
 
 function triggerBombs() {
-  // This function is on a setinterval nearly every 5 seconds whereas a bomb is pushed from the aliens.top and aliens.left coordinates
+  // This function is on a setinterval nearly every 5 seconds whereas a bomb is pushed from the aliens coordinates
   for (var alien = 0; alien < aliens.length; ++alien) {
     energy.push({
       top: aliens[3].top,
@@ -188,30 +188,26 @@ function moveAliens() {
     }
   }
   function alienAxis() {
-    for (
-      var alien = 0;
-      alien < aliens.length;
-      ++alien // iterate through aliens.length so the whole array will do the next command
-    )
-      aliens[alien].left += alienStep; // Aliens take one step towards the player upon reaching gamewindows boundaries
+    for (var alien = 0; alien < aliens.length; ++alien) // iterate through aliens.length so the whole array will do the next command
+      aliens[alien].left += alienStep; // Aliens take one step towards the player
   }
 }
 
 function collisionDetection() {
-  // This function detects collisions between aliens and weapons by iterating through them and crosschecking their .top and .left coordinates
+  // This function detects collisions between aliens and weapons by iterating through them and evaluating their .top and .left coordinates
   for (var alien = 0; alien < aliens.length; ++alien) {
     // Iterate through the aliens length..
     for (var rocket = 0; rocket < rockets.length; ++rocket) {
       // and iterate through the rockets length..
       if (
         rockets[rocket].top <= aliens[alien].top + 30 && // In order to get collision to work it just needs to include + 30 from the top/left corner because of the pixel height of the aliens
-        rockets[rocket].top >= aliens[alien].top - 1 && // Otherwise the hitbox window would be 1 pixels wide
+        rockets[rocket].top >= aliens[alien].top && // Otherwise the hitbox window would be only 0 pixels wide and non functional
         rockets[rocket].left >= aliens[alien].left &&
         rockets[rocket].left <= aliens[alien].left + 30 // Similarly + 30 here because from the left side of the alien image, + 30 is the width of the alien
       ) {
         // Collision has occured, remove weapon and alien from game, check gameOver condition
-        aliens.splice(alien, 2); // rockets have splash damage, represented by 2 spliced aliens. However at the point of this rocket splice it throws a console error sometimes(not always), sign of a race condition?
-        rockets.splice(rocket, 1); // BUG Report = "Cant read property of undefined, on line 219"  which is in the laser collisions just below. However the game continues to work fine, with functional collisionDetection for the remainder of the aliens
+        aliens.splice(alien, 2); // Rockets have splash damage, represented by 2 spliced aliens. However at the point of this rocket splice it throws a console error sometimes(not always), sign of a race condition?
+        rockets.splice(rocket, 1); // BUG Report = "Cant read property of undefined, on line 219" which is in the laser collisions just below. However the game continues to work fine, with functional collisionDetection for the remainder of the aliens
         checkGameover(); // this function is exluded from the gameLoop(), and checks different gameOver conditions like (aliens.length == 0) and presents gameOver alert
       }
     }
@@ -219,11 +215,11 @@ function collisionDetection() {
       // this for loop is directly after the alien for loop and iterates through the lasers.length
       if (
         lasers[laser].top <= aliens[alien].top + 30 &&
-        lasers[laser].top >= aliens[alien].top - 1 &&
+        lasers[laser].top >= aliens[alien].top &&
         lasers[laser].left >= aliens[alien].left &&
         lasers[laser].left <= aliens[alien].left + 30
       ) {
-        // Collision has occured, remove weapon and alien from game, check gameOver condition
+        // Collision has occured, remove weapon and alien from game, checks gameOver condition
         aliens.splice(alien, 1); // lasers don't have splash damage, remove only 1 alien from game
         lasers.splice(laser, 1);
         checkGameover(); // this function is called from the lasers collisionDetection as well
@@ -233,7 +229,7 @@ function collisionDetection() {
 }
 
 function checkGameover() {
-  // if condition == true: Show win game alert, slideDown menu and reload document; = to my knowledge at this point the only way to repopulate with aliens
+  // if condition is true: Show win game alert, slideDown menu and reload document; = to my knowledge at this point the only way to repopulate with aliens
   if (
     aliens.length == 0 || // If no aliens are left
     aliens.left <= 50 // or if the aliens reach the left side
