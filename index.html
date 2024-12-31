@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="assets/images/favicon.ico"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Alien Invaders</title>
+    <script src="assets/js/game.js?v=3.14.5" async></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="shortcut icon" type="image/jpg" href="assets/images/favicon.ico">
-	<link rel="stylesheet" href="assets/css/style.css">
-	<title>Alien Invaders</title>
-</head>
+  <body>
+    <div class="gamecontainer">
+      <div id="menu">
+        <h1><span>Alien Invaders</span><span class="snake"></span></h1>
+        <a id="button">
+          <span class="snake"></span>
+          <span class="snake"></span>
+          <span class="snake"></span>
+          <span class="snake"></span>
+          Start Game
+        </a>
+        <p>
+          Press Space to fire torpedoes, Ctrl to fire Laser, Arrow Up, Down,
+          Left and Right to control your spaceship! <br />
+          Click button to Start!
+        </p>
+      </div>
 
-<body>
-	<div class="gamecontainer">
-		<div class="buttoncontainer">
-			<h1><span>Alien Invaders</span><span class="snake"></span></h1>
-			<a class="button">
-				<span class="snake"></span>
-				<span class="snake"></span>
-				<span class="snake"></span>
-				<span class="snake"></span>
-				Start Game
-			</a>
-			<p>Press Space to fire torpedoes, Ctrl to fire Laser, Arrow Up, Down, Left and Right to control your
-				spaceship!
-				<br> Click button to Start!
-            </p>
-		</div>
-		<div id="background">
-			<div id="spaceship"></div>
-			<div id="rockets"></div>
-			<div id="lasers"></div>
-			<div id="energy"></div>
-			<div id="aliens"></div>
-		</div>
-	</div>
-	<script src="assets/js/game.js" async></script>
-	<script src="https://code.jquery.com/jquery-3.5.0.min.js"
-		integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous" defer></script>
-</body>
-
+      <div id="playground">
+        <h6 id="score"></h6>
+        <div id="spaceship"></div>
+        <div id="explosions"></div>
+        <div id="rockets"></div>
+        <div id="lasers"></div>
+        <div id="energy"></div>
+        <div id="aliens"></div>
+      </div>
+    </div>
+  </body>
 </html>

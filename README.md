@@ -153,9 +153,9 @@ The key to this knowledge was to learn that every button has its own keyCode and
 
 #### I. Testing Functionality <a name="Testing2"></a>
 
-1. I have done manual testing throughout the development process, because I didn't know how to implement test-driven-development effectively with jasmine in real-time.
+1. I have done manual testing throughout the development process plus a Jasmine test suite.
 2. As the game was finished I have continued to do some manual testing by playing around with it, I added limits to the spaceship movement late so that you don't move outside the gamescreen
-2. However I have added a Jasmine test suite near the end of my development process to do (18) checks against my functions, objects, numbers and variables, this did actually provide me some insight into what I thought were arrays but were actually objects.
+2. I have added a Jasmine test suite near the end of my development process to do (18) checks against my functions, objects, and types.
 3. I have run the HTML code through [W3C HTML Validator](https://validator.w3.org) to check for errors in the code, none observed.
 4. I have run the CSS code through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to check for errors in the code, none observed.
 5. I formatted the HTML code through the use of [Free Formatter](www.freeformatter.com/html-formatter.html)
@@ -210,15 +210,8 @@ The following process was used to deploy the project:
 To clone this project from GitHub:
 1. At the top of this repository, click the green button **Clone or download**.
 2. In the Clone with HTTPs section, copy the clone URL for the repository. 
-3. Open your favourite terminal (cmd, powershell, bash, git bash, etc.)
-4. Change the current working directory to the location where you want the cloned directory to be made.
-5. Type `git clone`, and then paste the URL you copied in Step 2.
-```console
-git clone https://github.com/Voggastur/interactive-frontend-project
-```
-6. Press Enter. Your local clone will be created.
-
-
+3. Open a command terminal and git clone the url
+4. * To run this game locally run python3 -m http.server
 
 ## 7. Credits <a name="Credits"></a>
 
@@ -231,7 +224,7 @@ git clone https://github.com/Voggastur/interactive-frontend-project
 * I followed along videos in writing some other short games as well, another space invaders game where I understood nothing, an asteroids game with some concepts better explained, and a paddlegame which really explained canvas properties well, but these were using HTML canvas with code that looked strange for someone unfamiliar to javascript,
 * however at this late stage in my development I understand more of the canvas properties and I realize it might be more suited for a moving parts game, as well as being an API for one of the project requirements.
 
-* Credits should also be given to youtuber Ania Kubow who in some tutorials explained several concepts unknown/forgotten to me, that were useful in my project, like .splice and my $(document).keydown(function(e) control function
+* Credits should also be given to youtuber Ania Kubow who in some tutorials explained several concepts unknown to me, that were useful in my project, like .splice and my $(document).keydown(function(e) control function
 
 * I used jQuery as much as I could, it has very handy shortcuts, specifically event handlers and easy DOM targetting, but sometimes I don't know if there's any equivalent to regular javascript
 
@@ -241,5 +234,4 @@ git clone https://github.com/Voggastur/interactive-frontend-project
 
 * Scrolling background image was taken from NASAs website, but converted to a minimum size better suited to my website project
 
-* The letters J and K for my favicon.ico were found on google picture search, upon finding them I combined them and made converted it into my favicon.ico.
 

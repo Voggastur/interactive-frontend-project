@@ -1,90 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-
 /*----- Title styling with animation -----*/
 
 h1 {
-    font-family: 'Orbitron', sans-serif;
-    color: #4eec1d;
-    position: relative;
-    display: block;
-    margin: 100px;
-    padding: 25px 30px;
-    font-size: 4em;
-    font-weight: 200;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    overflow: hidden;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
+  font-family: 'Orbitron', sans-serif;
+  color: #4eec1d;
+  position: relative;
+  display: block;
+  margin: 100px;
+  padding: 25px 30px;
+  font-size: 4em;
+  font-weight: 200;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: all 0.5s linear 0;
 }
 
 h1:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 h1 .snake {
-    position: absolute;
-    display: block;
+  position: absolute;
+  display: block;
 }
 
 h1 .snake {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2em;
-    background: -webkit-gradient(linear, left top, right top, from(transparent), to(#30701d));
-    background: -o-linear-gradient(left, transparent, #30701d);
-    background: linear-gradient(90deg, transparent, #30701d);
-    -webkit-animation: snake 4s linear infinite;
-            animation: snake 4s linear infinite;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2em;
+  background: linear-gradient(90deg, transparent, #30701d);
+  animation: snake 4s linear infinite;
 }
 
 @-webkit-keyframes snake {
-    0% {
-        left: -100%;
-    }
-    50%, 100% {
-        left: 100%;
-    }
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
 }
 
 @keyframes snake {
-    0% {
-        left: -100%;
-    }
-    50%, 100% {
-        left: 100%;
-    }
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
 }
 
 /* ----- Overlay settings ----- */
 
 body {
-    background-color: #000;
+  background-color: #000;
 }
 
 .gamecontainer {
-    position: relative;
-    margin: 0 auto;
-    height: 800px;
-    width: 1200px;
-    overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
-#background {
-    display: none;
-    background-image: url("../images/11.jpg");
-    background-size: cover;
-    overflow: hidden;
-    height: 800px;
-    width: 1600px;
-    position: absolute;
-    -webkit-animation: sidescroller 40s linear infinite;
-            animation: sidescroller 40s linear infinite;
-    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+#playground {
+  display: none;
+  background-image: url('../images/11.jpg');
+  background-size: cover;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  animation: sidescroller 40s linear infinite;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 @-webkit-keyframes sidescroller {
@@ -92,7 +85,7 @@ body {
     background-position-x: 0px;
   }
   to {
-    background-position-x: -1600px;
+    background-position-x: -100vw;
   }
 }
 
@@ -101,279 +94,277 @@ body {
     background-position-x: 0px;
   }
   to {
-    background-position-x: -1600px;
+    background-position-x: -100vw;
   }
 }
 
-.buttoncontainer {
-    z-index: 3;
-    position: absolute;
-    margin: 0 auto;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 800px;
-    width: 1200px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    background: #000;
+#menu {
+  position: absolute;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  background: #000;
+  opacity: 1;
+  transition: all 1s linear;
 }
 
 p {
-    font-family: 'Orbitron', sans-serif;
-    position: relative;
-    display: inline-block;
-    margin: 50px;
-    color: #4eec1d;
-    font-size: 18px;
-    letter-spacing: 1.3px;
-    line-height: 30px;
-    text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+  display: inline-block;
+  margin: 50px;
+  color: #4eec1d;
+  font-size: 18px;
+  letter-spacing: 1.3px;
+  line-height: 30px;
+  text-align: center;
+}
+
+#score {
+  font-family: 'Orbitron', sans-serif;
+  color: #4eec1d;
+  position: absolute;
+  margin: 20px 0 0 20px;
+  font-size: 3em;
+  font-weight: 200;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
 /*----- Button styling with four snakes -----*/
-/*----- I learned to do this button from a youtube css tutorial and it is largely the same as in the video, 
- however the scifi nature of the :hover glow effect makes it perfect for a scifi game, I used what I learned here to create the simple title animation -----*/
 
-.button {
-    font-family: 'Orbitron', sans-serif;
-    z-index: 5;
-    position: relative;
-    display: inline-block;
-    padding: 25px 30px;
-    margin: 40px 10px;
-    color: #4eec1d;
-    font-size: 24px;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    overflow: hidden;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
+#button {
+  font-family: 'Orbitron', sans-serif;
+  z-index: 5;
+  position: relative;
+  display: inline-block;
+  padding: 25px 30px;
+  margin: 40px 10px;
+  color: #4eec1d;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.button:hover {
-    background: #4eec1d;
-    color: #000;
-    -webkit-box-shadow: 0 0 6px #4eec1d, 0 0 30px #4eec1d, 0 0 60px #4eec1d, 0 0 120px #4eec1d;
-            box-shadow: 0 0 6px #4eec1d, 0 0 30px #4eec1d, 0 0 60px #4eec1d, 0 0 120px #4eec1d;
+#button:hover {
+  background: #4eec1d;
+  color: #000;
+  box-shadow: 0 0 6px #4eec1d, 0 0 30px #4eec1d, 0 0 60px #4eec1d,
+    0 0 120px #4eec1d;
 }
 
-a:hover, p:hover {
-    cursor: pointer;
+a:hover,
+p:hover {
+  cursor: pointer;
 }
 
 a .snake {
-    position: absolute;
-    display: block;
+  position: absolute;
+  display: block;
 }
 
 a .snake:nth-child(1) {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: -webkit-gradient(linear, left top, right top, from(transparent), to(#4eec1d));
-    background: -o-linear-gradient(left, transparent, #4eec1d);
-    background: linear-gradient(90deg, transparent, #4eec1d);
-    -webkit-animation: snake1 1s linear infinite;
-            animation: snake1 1s linear infinite;
-}
-
-@-webkit-keyframes snake1 {
-    0% {
-        left: -100%;
-    }
-    50%, 100% {
-        left: 100%;
-    }
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #4eec1d);
+  animation: snake1 1s linear infinite;
 }
 
 @keyframes snake1 {
-    0% {
-        left: -100%;
-    }
-    50%, 100% {
-        left: 100%;
-    }
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
 }
 
 a .snake:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 3px;
-    height: 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#4eec1d));
-    background: -o-linear-gradient(top, transparent, #4eec1d);
-    background: linear-gradient(180deg, transparent, #4eec1d);
-    -webkit-animation: snake2 1s linear infinite;
-            animation: snake2 1s linear infinite;
-    -webkit-animation-delay: 0.25s;
-            animation-delay: 0.25s;
-}
-
-@-webkit-keyframes snake2 {
-    0% {
-        top: -100%;
-    }
-    50%, 100% {
-        top: 100%;
-    }
+  top: -100%;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #4eec1d);
+  animation: snake2 1s linear infinite;
+  animation-delay: 0.25s;
 }
 
 @keyframes snake2 {
-    0% {
-        top: -100%;
-    }
-    50%, 100% {
-        top: 100%;
-    }
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
 }
 
 a .snake:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 3px;
-    background: -webkit-gradient(linear, right top, left top, from(transparent), to(#4eec1d));
-    background: -o-linear-gradient(right, transparent, #4eec1d);
-    background: linear-gradient(270deg, transparent, #4eec1d);
-    -webkit-animation: snake3 1s linear infinite;
-            animation: snake3 1s linear infinite;
-    -webkit-animation-delay: 0.5s;
-            animation-delay: 0.5s;
-}
-
-@-webkit-keyframes snake3 {
-    0% {
-        right: -100%;
-    }
-    50%, 100% {
-        right: 100%;
-    }
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(270deg, transparent, #4eec1d);
+  animation: snake3 1s linear infinite;
+  animation-delay: 0.5s;
 }
 
 @keyframes snake3 {
-    0% {
-        right: -100%;
-    }
-    50%, 100% {
-        right: 100%;
-    }
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
 }
 
 a .snake:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#4eec1d));
-    background: -o-linear-gradient(bottom, transparent, #4eec1d);
-    background: linear-gradient(360deg, transparent, #4eec1d);
-    -webkit-animation: snake4 1s linear infinite;
-            animation: snake4 1s linear infinite;
-    -webkit-animation-delay: 0.75s;
-            animation-delay: 0.75s;
-}
-
-@-webkit-keyframes snake4 {
-    0% {
-        bottom: -100%;
-    }
-    50%, 100% {
-        bottom: 100%;
-    }
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #4eec1d);
+  animation: snake4 1s linear infinite;
+  animation-delay: 0.75s;
 }
 
 @keyframes snake4 {
-    0% {
-        bottom: -100%;
-    }
-    50%, 100% {
-        bottom: 100%;
-    }
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }
 
 /*----- Game objects -----*/
 
-#spaceship { /*----- This is the player -----*/
-    background-image: url("../images/spaceship.png");
-    -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-    background-size: cover;
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    top: 400px;
-    left: 100px;
+#explosions {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
 }
 
-.alien { /*----- This is the alien enemy -----*/
-    background-image: url("../images/enemy.png");
-    background-size: cover;
-    height: 30px;
-    width: 30px;
-    position: absolute;
+.explosion {
+  background-image: url('../images/explosion.png');
+  background-size: cover;
+  transform: rotate(0deg);
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: explode 0.8s ease-out 2;
 }
 
-#rockets { /*----- This overlay is used to push .rocket inside -----*/
-    height: 800px;
-    width: 1200px;
-    position: absolute;
+@keyframes explode {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg) scale(0);
+    width: 80px;
+    height: 80px;
+  }
+  8% {
+    transform: translate(15px, 30px) rotate(0deg) scale(2);
+  }
+  16% {
+    transform: translate(0px, 0px) rotate(0deg) scale(0);
+  }
+  24% {
+    transform: translate(-15px, -30px) rotate(0deg) scale(1.2);
+  }
+  32% {
+    transform: translate(-5px, -10px) rotate(0deg) scale(0);
+  }
+  40% {
+    transform: translate(10px, 20px) rotate(0deg) scale(1.7);
+  }
+  48% {
+    transform: translate(-15px, -5px) rotate(0deg) scale(0);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(20deg) scale(3.3);
+    width: 80px;
+    height: 80px;
+  }
 }
 
-.rocket { /*----- Player weapon on SPACE button -----*/
-    background-image: url("../images/rocket.png");
-    background-size: cover;
-    -webkit-transform: rotate(270deg);
-        -ms-transform: rotate(270deg);
-            transform: rotate(270deg);
-    height: 20px;
-    width: 14px;
-    position: absolute;
+#spaceship {
+  background-image: url('../images/spaceship.png');
+  transform: rotate(90deg);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 400px;
+  left: 100px;
 }
 
-#lasers { /*----- This overlay is used to push .laser inside -----*/
-    height: 800px;
-    width: 1200px;
-    position: absolute;
+.alien {
+  background-image: url('../images/enemy.png');
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  position: absolute;
 }
 
-.laser { /*----- Player weapon on CTRL button -----*/
-    background-image: url("../images/laser.png");
-    -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-    background-size: cover;
-    height: 18px;
-    width: 7px;
-    position: absolute;
+#rockets {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
 }
 
-#energy { /*----- This overlay is used to push the aliens .energybomb weapon inside -----*/
-    height: 800px;
-    width: 1200px;
-    position: absolute;
+.rocket {
+  background-image: url('../images/rocket.png');
+  background-size: cover;
+  transform: rotate(270deg);
+  height: 20px;
+  width: 14px;
+  position: absolute;
 }
 
-.energybomb { /*----- Alien weapon -----*/
-    background-image: url("../images/energy2.png");
-    background-size: cover;
-    height: 15px;
-    width: 15px;
-    position: absolute;
+#lasers {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
 }
 
+.laser {
+  background-image: url('../images/laser.png');
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-size: cover;
+  height: 18px;
+  width: 7px;
+  position: absolute;
+}
+
+#energy {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+}
+
+.energybomb {
+  background-image: url('../images/energy2.png');
+  background-size: cover;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+}
 
