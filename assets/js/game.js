@@ -72,7 +72,7 @@ const createAlienData = score => {
     const padtop = 50 * i
 
     aliens.push({
-      left: window.innerWidth - 100,
+      left: window.innerWidth - 60,
       top: 250 + padtop,
       height: 30,
       width: 30,
@@ -167,7 +167,7 @@ function pushRockets () {
 }
 
 function moveRockets () {
-  rockets = rockets.filter(rocket => rocket.left < 2000)
+  rockets = rockets.filter(rocket => rocket.left < window.innerWidth)
 
   for (var i = 0; i < rockets.length; ++i) {
     rockets[i].left += rocketSpeed
@@ -189,7 +189,7 @@ function pushLasers () {
 }
 
 function moveLasers () {
-  lasers = lasers.filter(laser => laser.left < 2000)
+  lasers = lasers.filter(laser => laser.left < window.innerWidth)
 
   for (var i = 0; i < lasers.length; ++i) {
     lasers[i].left += laserSpeed
@@ -253,18 +253,19 @@ function pushAliens () {
 
 function moveAliens () {
   const changeDirection = aliens.some(
-    alien => alien.top > 775 || alien.top < 25
+    alien => alien.top > window.innerHeight - 30 || alien.top < 0
   )
 
   if (changeDirection) {
     alienDirection -= alienDirection * 2
   }
 
-  aliens.map(alien => ({
-    ...alien,
-    top: (alien.top += alienDirection),
-    left: (alien.left = changeDirection ? alien.left + alienStep : alien.left)
-  }))
+  aliens.forEach(alien => {
+    alien.top += alienDirection
+    if (changeDirection) {
+      alien.left += alienStep
+    }
+  })
 
   pushAliens()
 }
