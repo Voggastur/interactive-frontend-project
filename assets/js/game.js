@@ -15,7 +15,8 @@ function loadOnReady () {
 
 loadOnReady()
 
-const alienStep = -30
+const alienStep = -120
+const maxEnergybombs = 3
 const spaceshipSpeedTop = 20
 const spaceshipSpeedLeft = 20
 const laserSpeed = 15
@@ -33,7 +34,7 @@ var photontorpedoes = []
 var aliens = []
 
 const startIntervals = () => {
-  photonTorpedoIntervalID = setInterval(triggerBombs, 2000)
+  photonTorpedoIntervalID = setInterval(triggerBombs, 700)
   gameIntervalID = setInterval(gameLoop, 20)
 }
 
@@ -91,7 +92,7 @@ var spaceship = {
 document.addEventListener('keydown', e => {
   switch (e.key) {
     case 'ArrowDown':
-      if (spaceship.top <= 760) {
+      if (spaceship.top <= window.innerHeight - 40) {
         spaceship.top += spaceshipSpeedTop
         moveSpaceship()
       }
@@ -109,7 +110,7 @@ document.addEventListener('keydown', e => {
       }
       break
     case 'ArrowRight':
-      if (spaceship.left <= 1100) {
+      if (spaceship.left <= window.innerWidth - 100) {
         spaceship.left += spaceshipSpeedLeft
         moveSpaceship()
       }
@@ -200,7 +201,7 @@ function moveLasers () {
 
 function triggerBombs () {
   const length = aliens.length
-  if (length === 0) {
+  if (length === 0 || photontorpedoes.length >= maxEnergybombs) {
     return
   }
 
