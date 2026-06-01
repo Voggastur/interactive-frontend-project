@@ -15,7 +15,7 @@ function loadOnReady () {
 
 loadOnReady()
 
-const alienStep = -120
+const getAlienStep = () => -Math.round(window.innerWidth * 0.1)
 const maxEnergybombs = 3
 const spaceshipSpeedTop = 20
 const spaceshipSpeedLeft = 20
@@ -264,7 +264,7 @@ function moveAliens () {
   aliens.forEach(alien => {
     alien.top += alienDirection
     if (changeDirection) {
-      alien.left += alienStep
+      alien.left += getAlienStep()
     }
   })
 
